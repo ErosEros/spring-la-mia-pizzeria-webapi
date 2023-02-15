@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block th:fragment="head">
+		<!-- Required meta tags -->
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    	<!-- Bootstrap CSS -->
+    	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+	</th:block>
+
+	<div th:fragment="Search-fragment">
+  		
+  		<!--  FORM CON METODO GET E ROTTA /CERCA -->
+	<form class="row g-3"  action="/cerca" method="GET">
+		<div class="col-auto">
+    		<label for="nomePizza" class="visually-hidden">Cerca per nome</label>
+    		<input type="text" class="form-control" id="nomePizza" name="nomePizza">
+    	</div>
+    	<div class="col-auto">		
+    		<button type="submit" class="btn btn-primary mb-3">Cerca</button>
+    	</div>
+	</form>
+  
+	</div>
+
+
+</body>
+</html>
