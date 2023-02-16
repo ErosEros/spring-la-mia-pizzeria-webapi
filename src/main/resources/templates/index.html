@@ -7,8 +7,12 @@
 </head>
 <body>
 
-
-
+	<div class="text-center m-2 ">
+	
+		<img class="rounded-circle" width="400" height="400" alt="foto-pizzeria" src="https://media.gettyimages.com/id/1144820766/it/foto/la-pizza-%C3%A8-pronta.jpg?s=1024x1024&w=gi&k=20&c=0dPPd-bZHCNsTuFob01I0tESFvUWYkqFpYkdj7SP6XU=">
+	
+	</div>
+	
 	<div th:replace="fragment :: Search-fragment"></div>
 	
 		<table class="table table-bordered border-primary">
@@ -32,6 +36,9 @@
     </tr>
   </tbody>
 </table>
+	
+	<a th:href="@{/create}" class="btn btn-primary">Crea nuova pizza</a>
+	
 
 </body>
 </html>

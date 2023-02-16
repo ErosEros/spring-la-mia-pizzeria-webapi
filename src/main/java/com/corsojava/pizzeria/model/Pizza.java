@@ -1,11 +1,15 @@
 package com.corsojava.pizzeria.model;
 
-import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "pizze")
@@ -14,13 +18,21 @@ public class Pizza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Column
+    @NotNull(message = "Devi inserire un nome!!")
+    @NotEmpty(message = "Il campo non può essere vuoto")
+    @Size(min = 3, max = 20, message = "Il nome della pizza deve essere compreso tra {min} e {max} caratteri")
     private String nome;
-    @Column
+
+    @NotNull(message = "Devi inserire una descrizone!!")
+    @NotEmpty(message = "Il campo non può essere vuoto")
+    @Size(min = 2, max = 255, message = "La descrizione della pizza deve essere compreso tra {min} e {max} caratteri")
     private String descrizione;
-    @Column
+    
+    
     private String foto;
-    @Column
+    
+    @NotNull(message = "Devi inserire un prezzo!!")
+    @DecimalMin(value = "0.01", message = "Il prezzo deve essere maggiore di zero")
     private double prezzo;
     
 
