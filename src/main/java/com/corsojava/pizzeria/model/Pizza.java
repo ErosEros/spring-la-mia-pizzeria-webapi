@@ -1,6 +1,8 @@
 package com.corsojava.pizzeria.model;
 
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,7 +35,7 @@ public class Pizza {
     
     @NotNull(message = "Devi inserire un prezzo!!")
     @DecimalMin(value = "0.01", message = "Il prezzo deve essere maggiore di zero")
-    private double prezzo;
+    private BigDecimal prezzo;
     
 
 //  GETTERS E SETTERS
@@ -78,12 +80,12 @@ public class Pizza {
 	}
 
 
-	public double getPrezzo() {
+	public BigDecimal getPrezzo() {
 		return prezzo;
 	}
 
 
-	public void setPrezzo(double prezzo) {
+	public void setPrezzo(BigDecimal prezzo) {
 		this.prezzo = prezzo;
 	}
 
