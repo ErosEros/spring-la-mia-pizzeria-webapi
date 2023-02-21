@@ -6,7 +6,7 @@
 </head>
 <body>
 <h5>MODIFICA LA TUA PIZZA</h5>
-		<form id="pizza-form" th:object="${pizza}" th:action="@{/edit/{id}(id=${id})}" method="post">	
+		<form id="pizza-form" th:object="${pizza}" th:action="@{/edit/{id}(id=${pizza.id})}" method="post">	
 		<ul>
 	      <li 
 	         th:each="err : ${#fields.allErrors()}" 

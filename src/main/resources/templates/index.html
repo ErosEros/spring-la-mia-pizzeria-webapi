@@ -29,7 +29,16 @@
       <td th:text="${pizza.descrizione}"></td>
       <td th:text="${pizza.prezzo}"></td>
 <!--       <td><img th:src="${pizza.foto()}"></img></td> -->
+	  <td>
+			<form action="#" th:action="@{'/delete/{id}'(id=${pizza.id})}" method="post">
+				<button class="btn btn-primary" type="submit" id="submitButton">
+					<i class="fas fa-trash-alt"></i>
+				</button>
+			</form>
+			
+	  </td>	
       <td ><a th:href="@{/details/{id}(id=${pizza.id})}">Visualizza dettagli</a></td>
+      <td ><a th:href="@{/edit/{id}(id=${pizza.id})}">Modifica</a></td>
     </tr>
      <tr th:if="${#lists.isEmpty(listaPizze)}">
       <td colspan="3" class="text-center">Non ci sono pizze disponibili.</td>
@@ -38,7 +47,7 @@
 </table>
 	
 	<a th:href="@{/create}" class="btn btn-primary">Crea nuova pizza</a>
-	
+
 
 </body>
 </html>
