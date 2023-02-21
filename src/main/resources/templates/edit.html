@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Modifica Pizza</title>
+</head>
+<body>
+<h5>MODIFICA LA TUA PIZZA</h5>
+		<form id="pizza-form" th:object="${pizza}" th:action="@{/edit/{id}(id=${id})}" method="post">	
+		<ul>
+	      <li 
+	         th:each="err : ${#fields.allErrors()}" 
+	         th:text="${err}">
+	      </li>
+  		</ul>	
+			<!-- INSERISCRI NOME DELLA PIZZA -->
+			<label for="nome">Inserisci il Nome</label>
+			<input type="text" id="nome" th:field="*{nome}">
+
+			<!-- INSERISCRI DESCRIZIONE DELLA PIZZA -->
+			<label for="descrizione">Inserisci la Descrizione</label>
+  			<input type="text" id="descrizione" th:field="*{descrizione}"> 
+
+  			<!-- INSERISCRI IL PREZZO DELLA PIZZA -->
+  			<label for="prezzo" class="form-label">Inserisci il Prezzo</label>
+  			<input type="text" id="prezzo" th:field="*{prezzo}">
+
+  			<!-- BOTTONE PER SALVARE IL FORM -->
+  			<button type="submit">Salva</button>
+		</form>
+</body>
+</html>

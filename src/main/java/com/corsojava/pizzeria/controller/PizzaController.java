@@ -59,6 +59,7 @@ public class PizzaController {
 	    return "index";
 	}
 	
+//	CREATE
 	@GetMapping("/create")	
 	public String create(Model model) {
 		Pizza pizza=new Pizza();
@@ -79,4 +80,30 @@ public class PizzaController {
 		return "redirect:/";
 		
 	}
+	
+//	EDIT
+	@GetMapping("/edit/{id}") 
+	public String edit(@PathVariable("id") Integer id,Model model ) {
+		
+		Pizza p;
+		p = pizzaRepo.getReferenceById(id);
+		model.addAttribute("pizza", p);
+		
+		return "edit";
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String update(
+			@Valid @ModelAttribute Pizza formPizza,
+			BindingResult bindingResult,
+			Model model) {
+		if(bindingResult.hasErrors())
+			return "edit";
+		
+		pizzaRepo.save(formPizza);
+		
+		return "redirect:/";
+		
+	}
+	
 }
