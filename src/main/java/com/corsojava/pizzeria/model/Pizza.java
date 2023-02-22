@@ -2,11 +2,13 @@ package com.corsojava.pizzeria.model;
 
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
@@ -37,11 +39,23 @@ public class Pizza {
     @DecimalMin(value = "0.01", message = "Il prezzo deve essere maggiore di zero")
     private BigDecimal prezzo;
     
+    @OneToMany (mappedBy = "pizza") // si riferisce al ManytoOne di pizzeria presente in Discount
+	private List<Discount> Discounts;
 
 //  GETTERS E SETTERS
 
 	public Integer getId() {
 		return id;
+	}
+
+
+	public List<Discount> getDiscounts() {
+		return Discounts;
+	}
+
+
+	public void setDiscounts(List<Discount> discounts) {
+		Discounts = discounts;
 	}
 
 
