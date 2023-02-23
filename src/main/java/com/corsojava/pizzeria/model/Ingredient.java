@@ -45,6 +45,6 @@ public class Ingredient {
 		this.pizze = pizze;
 	}
 
-	@ManyToMany(mappedBy = "ingredients")
+	@ManyToMany(mappedBy = "ingredienties")
 	private List<Pizza> pizze;
 }

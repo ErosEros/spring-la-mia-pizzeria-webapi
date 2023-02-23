@@ -4,6 +4,7 @@ package com.corsojava.pizzeria.model;
 import java.math.BigDecimal;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -43,10 +44,28 @@ public class Pizza {
     @OneToMany (mappedBy = "pizza") // si riferisce al ManytoOne di pizzeria presente in Discount
 	private List<Discount> Discounts;
     
-    @ManyToMany
-	private List<Ingredient> ingredients;
+    public List<Ingredient> getIngredienties() {
+		return ingredienties;
+	}
+	public void setIngredienties(List<Ingredient> ingredienties) {
+		this.ingredienties = ingredienties;
+	}
+
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Ingredient> ingredienties;
 
 //  GETTERS E SETTERS
+
+	public List<Ingredient> getIngredients() {
+		return ingredienties;
+	}
+
+
+	public void setIngredients(List<Ingredient> ingredienties) {
+		this.ingredienties = ingredienties;
+	}
+
 
 	public Integer getId() {
 		return id;

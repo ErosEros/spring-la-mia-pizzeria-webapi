@@ -42,7 +42,14 @@
 
 				</tbody>
 			</table>
-			<a class="btn btn-primary" th:href="@{'/discount/create?id='+ ${pizza.id}}">Crea Nuova offerta</a>
+			
+			<h1>INGREDIENTI:</h1>
+				<div th:each="ingredienties: ${pizza.Ingredienties}" >
+					<span th:text="${ingredienties.name}" class="text-white"></span>
 
+				</div>
+			
+			<a class="btn btn-primary" th:href="@{'/discount/create?id='+ ${pizza.id}}">Crea Nuova offerta</a>
+			<a class="btn btn-danger" th:href="@{/}"></i>Torna alla Home</a>
 </body>
 </html>
