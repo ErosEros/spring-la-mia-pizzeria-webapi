@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
@@ -41,6 +42,9 @@ public class Pizza {
     
     @OneToMany (mappedBy = "pizza") // si riferisce al ManytoOne di pizzeria presente in Discount
 	private List<Discount> Discounts;
+    
+    @ManyToMany
+	private List<Ingredient> ingredients;
 
 //  GETTERS E SETTERS
 
