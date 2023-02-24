@@ -51,7 +51,8 @@ public class Pizza {
 		this.ingredienties = ingredienties;
 	}
 
-
+	
+	
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Ingredient> ingredienties;
 

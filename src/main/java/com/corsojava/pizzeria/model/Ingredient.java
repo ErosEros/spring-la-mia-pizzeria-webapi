@@ -2,6 +2,8 @@ package com.corsojava.pizzeria.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -46,5 +48,6 @@ public class Ingredient {
 	}
 
 	@ManyToMany(mappedBy = "ingredienties")
+	@JsonBackReference
 	private List<Pizza> pizze;
 }
